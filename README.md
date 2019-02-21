@@ -30,7 +30,27 @@ This includes that your code should be professional.
 
 ## Test coverage (=60).
 
-There are some intentional bugs in the code and some accidental bugs. See if you can catch them.
+There are some intentional bugs in the MapADT implementing code and (likely) some accidental bugs. See if you can catch them.
+
+### SetADT (=20)
+
+- size
+- insert
+- contains
+- remove
+- toList*
+- toJava*
+
+### MapADT (=20)
+
+- put
+- get
+- size
+- remove
+- getKeys*
+- getEntries*
+- toJava*
+
 
 ### ListADT (=20)
 
@@ -44,24 +64,13 @@ Make use of the structure I created for you in ``makeFullList``. The following m
 
 Try to understand what's going on with the new errors: ``BadIndexError``, and ``EmptyListError`` in particular.
 
-### SetADT (=20)
+### Testing toList, toJava, getKeys, and getEntries
 
-- size
-- insert
-- contains
-- remove
-- toList
-- toJava
+It is impossible to fully prove these transformations work for every collection. Since SetADT and MapADT do not specify an order, we would need the ability to sort their output in order to make equality work against collections. Instead of writing tricky tests for this, consider the following statements:
 
-### MapADT (=20)
-
-- put
-- get
-- size
-- remove
-- getKeys
-- getEntries
-- toJava
+1. Converting collections should not change its size.
+2. An empty collection should have an empty list (or list of keys, or list of entries).
+3. A one-element collection 
 
 ## Coding Challenges (=10 + 10)
 
@@ -70,4 +79,16 @@ Writing code and tests for these methods (see ``Challenge.java``) is worth 10 po
  - intersection
  - union
  - wordCount
+ 
+ The challenge of the tests here is that you will need to devise a way to compute equality of sets...
+ 
+ ```java
+ boolean equals(SetADT<Integer> lhs, SetADT<Integer> rhs) {
+   if (lhs.size() != rhs.size()) { return false; }
+   for (int item : lhs.toList()) {
+     // what to do here...?
+   }
+   return true;
+ }
+ ```
 
