@@ -80,13 +80,14 @@ Writing code and tests for these methods (see ``Challenge.java``) is worth 10 po
  - union
  - wordCount
  
- The challenge of the tests here is that you will need to devise a way to compute equality of sets...
+ The challenge of the tests here is that you will need to devise a way to compute equality of MapADTs...
  
+ Hint: here's SetADT:
  ```java
- boolean equals(SetADT<Integer> lhs, SetADT<Integer> rhs) {
+ boolean areSetsEqual(SetADT<Integer> lhs, SetADT<Integer> rhs) {
    if (lhs.size() != rhs.size()) { return false; }
    for (int item : lhs.toList()) {
-     // what to do here...?
+     if (!rhs.contains(item)) { return false; }
    }
    return true;
  }
