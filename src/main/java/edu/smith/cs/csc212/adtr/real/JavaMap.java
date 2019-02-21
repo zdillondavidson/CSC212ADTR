@@ -1,7 +1,7 @@
 package edu.smith.cs.csc212.adtr.real;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 import edu.smith.cs.csc212.adtr.ListADT;
@@ -19,13 +19,13 @@ public class JavaMap<K,V> implements MapADT<K,V> {
 	/**
 	 * The private Java hashmap that does all the work.
 	 */
-	private HashMap<K,V> data;
+	private LinkedHashMap<K,V> data;
 
 	/**
 	 * Create an empty MapADT.
 	 */
 	public JavaMap() {
-		this.data = new HashMap<K,V>();
+		this.data = new LinkedHashMap<K,V>();
 	}
 	
 	/**
@@ -33,7 +33,7 @@ public class JavaMap<K,V> implements MapADT<K,V> {
 	 * @param toCopy
 	 */
 	public JavaMap(Map<K,V> toCopy) {
-		this.data = new HashMap<K,V>(toCopy);
+		this.data = new LinkedHashMap<K,V>(toCopy);
 	}
 	
 	@Override

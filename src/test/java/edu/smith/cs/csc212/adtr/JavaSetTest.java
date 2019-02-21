@@ -13,4 +13,5 @@ public class JavaSetTest {
 		SetADT<String> empty = new JavaSet<>();
 		assertEquals(empty.size(), 0);
 	}
+	
 }
