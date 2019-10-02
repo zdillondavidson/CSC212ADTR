@@ -1,8 +1,8 @@
-# P5: Testing ADTs
+# P4: Testing ADTs
 
 The learning objectives of this assignment are to understand how JUnit works and how to read and write basic tests before we start working on our own data structures.
 
-***Due Date***: February 28, 2019.
+***Due Date***: October 11, 2019.
 
 Remember that we will have a midterm that weekend, so don't save it until the last minute!
 
@@ -10,7 +10,7 @@ Remember that we will have a midterm that weekend, so don't save it until the la
 
 ### Rubric and Reflection (=15)
 
-You must include a PDF file in your submission that identifies the grade you expect on this assignment based on what you completed. 
+You must fill out a Google Form to indicate the parts of the assignment that you have attempted. 
 
 In addition, you will write 10 statements of either:
  - Accomplishments: things that you understand much better now.
