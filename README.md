@@ -76,9 +76,10 @@ Writing code and tests for these methods (see ``Challenge.java``) is worth 12 po
 
 ## ADT-Reductions: Construct one data structure from another and test it. (=?)
 
-- ListFromMap
-- MapFromList
-- SetFromMap
-- SetFromList
+- class SetFromMap extends SetADT
+- class SetFromList extends SetADT
+- class MapFromList extends MapADT
+- class ListFromMap extends ListADT
+
 
  
