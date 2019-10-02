@@ -87,28 +87,7 @@ public class JavaListTest {
 		Assert.assertEquals(false, data.isEmpty());
 	}
 	
-	@Test
-	public void testAddToBack() {
-		ListADT<String> data = makeEmptyList();
-		data.addBack("1");
-		Assert.assertEquals(1, data.size());
-		Assert.assertEquals("1", data.getIndex(0));
-		data.addBack("0");
-		Assert.assertEquals(2, data.size());
-		Assert.assertEquals("0", data.getIndex(1));
-		Assert.assertEquals("1", data.getIndex(0));
-		data.addBack("-1");
-		Assert.assertEquals(3, data.size());
-		Assert.assertEquals("-1", data.getIndex(2));
-		Assert.assertEquals("0", data.getIndex(1));
-		Assert.assertEquals("1", data.getIndex(0));
-		data.addBack("-2");
-		Assert.assertEquals("-2", data.getIndex(3));
-		Assert.assertEquals("-1", data.getIndex(2));
-		Assert.assertEquals("0", data.getIndex(1));
-		Assert.assertEquals("1", data.getIndex(0));
-	}
-	
+	// TODO: test list addToBack.
 	// TODO: test list remove
 	// TODO test addIndex methods.
 	
@@ -177,5 +156,15 @@ public class JavaListTest {
 	@Test
 	public void testToJava() {
 		assertEquals(makeFullList().toJava(), Arrays.asList("a", "b", "c", "d"));
+	}
+	
+	@Test
+	public void testEquals() {
+		assertEquals(makeFullList(), new JavaList<>(Arrays.asList("a", "b", "c", "d")));
+	}
+	
+	@Test
+	public void testEquals2() {
+		assertEquals(makeFullList(), makeFullList());
 	}
 }

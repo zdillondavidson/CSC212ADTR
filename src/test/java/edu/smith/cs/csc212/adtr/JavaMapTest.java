@@ -14,7 +14,7 @@ public class JavaMapTest {
 
 	@Test
 	public void testEmpty() {
-		MapADT<String, Integer> empty = new JavaMap<>();
+		MapADT<String, String> empty = new JavaMap<>();
 		assertEquals(empty.size(), 0);
 		//Assert.assert
 	}

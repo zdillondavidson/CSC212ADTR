@@ -6,7 +6,7 @@ import java.util.List;
 import edu.smith.cs.csc212.adtr.ListADT;
 
 /**
- * JavaList is a wrapper around Java's list as a ListADT and it gets specifc if you ask it silly questions.
+ * JavaList is a wrapper around Java's list as a ListADT and it gets specific if you ask it silly questions.
  * @author jfoley
  *
  * @param <T> - the type of the item stored in this list.
@@ -33,7 +33,7 @@ public class JavaList<T> extends ListADT<T> {
 	}
 	
 	@Override
-	protected boolean isEmpty() {
+	public boolean isEmpty() {
 		return inner.isEmpty();
 	}
 

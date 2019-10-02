@@ -12,7 +12,7 @@ import edu.smith.cs.csc212.adtr.SetADT;
  *
  * @param <T> - the type of items in the set.
  */
-public class JavaSet<T> implements SetADT<T> {
+public class JavaSet<T> extends SetADT<T> {
 	/**
 	 * The private Java set on the inside; does all the work.
 	 */

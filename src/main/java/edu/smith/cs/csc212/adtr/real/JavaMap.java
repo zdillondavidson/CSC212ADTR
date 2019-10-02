@@ -15,7 +15,7 @@ import edu.smith.cs.csc212.adtr.Pair;
  * @param <K> - the key 
  * @param <V>
  */
-public class JavaMap<K,V> implements MapADT<K,V> {
+public class JavaMap<K,V> extends MapADT<K,V> {
 	/**
 	 * The private Java hashmap that does all the work.
 	 */

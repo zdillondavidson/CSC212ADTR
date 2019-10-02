@@ -1,5 +1,7 @@
 package edu.smith.cs.csc212.adtr;
 
+import java.util.Map;
+
 /**
  * A class that stores two items (key,value) used in MapADT.
  * 
@@ -8,7 +10,7 @@ package edu.smith.cs.csc212.adtr;
  * @param <KeyType> - the type of the key.
  * @param <ValueType> - the type of the value.
  */
-public class Pair<KeyType, ValueType> {
+public class Pair<KeyType, ValueType> implements Map.Entry<KeyType, ValueType> {
 	/**
 	 * This is the contents of the key object.
 	 */
@@ -33,9 +35,12 @@ public class Pair<KeyType, ValueType> {
 	 * Change the value in this Pair.
 	 * 
 	 * @param value - the value to set it to.
+	 * @return before - the value it used to be.
 	 */
-	public void setValue(ValueType value) {
+	public ValueType setValue(ValueType value) {
+		ValueType before = this.value;
 		this.value = value;
+		return before;
 	}
 
 	/**
@@ -54,5 +59,19 @@ public class Pair<KeyType, ValueType> {
 	 */
 	public ValueType getValue() {
 		return this.value;
+	}
+	
+	@Override
+	public int hashCode() {
+		return this.key.hashCode() ^ this.value.hashCode();
+	}
+	
+	@Override
+	public boolean equals(Object other) {
+		if (other instanceof Pair) {
+			Pair<?,?> right = (Pair<?,?>) other;
+			return right.key.equals(this.key) && right.value.equals(this.value); 
+		}
+		return false;
 	}
 }

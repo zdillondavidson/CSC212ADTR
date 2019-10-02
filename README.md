@@ -28,68 +28,57 @@ This includes that your code should be professional.
 - Working with others or helping them debug is acceptable - use your best judgment! Make sure that you know what you're working on.
 - Have comments explaining tricky code!
 
-## Test coverage (=60).
+## Test coverage (=56).
 
 There are some intentional bugs in the MapADT implementing code and (likely) some accidental bugs. See if you can catch them.
 
-### SetADT (=20)
+### SetADT (=16)
 
 - size
 - insert
 - contains
 - remove
-- toList*
-- toJava*
 
-### MapADT (=20)
+
+### MapADT (=16)
 
 - put
 - get
 - size
 - remove
-- getKeys*
-- getEntries*
-- toJava*
 
 
-### ListADT (=20)
+### ListADT (=24)
 
 Make use of the structure I created for you in ``makeFullList``. The following methods need tests:
 
 - setIndex
 - addIndex
+- addToBack
 - removeBack
 - removeIndex
 - removeFront
 
 Try to understand what's going on with the new errors: ``BadIndexError``, and ``EmptyListError`` in particular.
 
-### Testing toList, toJava, getKeys, and getEntries
+### Testing (and completeness)
 
-It is impossible to fully prove these transformations work for every collection. Since SetADT and MapADT do not specify an order, we would need the ability to sort their output in order to make equality work against collections. Instead of writing tricky tests for this, consider the following statements:
+It is impossible to fully prove these some of these methods work for every collection. Consider how to find a balance between proving it works to yourself and making a lot of tedious code.
 
-1. Converting collections should not change its size.
-2. An empty collection should have an empty list (or list of keys, or list of entries).
-3. A one-element collection 
+## Coding Challenges (=12 + 12)
 
-## Coding Challenges (=10 + 10)
+Writing code and tests for these methods (see ``Challenge.java``) is worth 12 points, and 12 if you have tests.
 
-Writing code and tests for these methods (see ``Challenge.java``) is worth 10 points, and 10 if you have tests.
+ - intersection (4 + 4)
+ - union (4 + 4)
+ - wordCount (4 + 4)
 
- - intersection
- - union
- - wordCount
+
+## ADT-Reductions: Construct one data structure from another and test it. (=?)
+
+- ListFromMap
+- MapFromList
+- SetFromMap
+- SetFromList
+
  
- The challenge of the tests here is that you will need to devise a way to compute equality of MapADTs...
- 
- Hint: here's SetADT:
- ```java
- boolean areSetsEqual(SetADT<Integer> lhs, SetADT<Integer> rhs) {
-   if (lhs.size() != rhs.size()) { return false; }
-   for (int item : lhs.toList()) {
-     if (!rhs.contains(item)) { return false; }
-   }
-   return true;
- }
- ```
-

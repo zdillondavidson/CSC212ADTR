@@ -3,6 +3,7 @@ package edu.smith.cs.csc212.adtr;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Objects;
 
 import edu.smith.cs.csc212.adtr.errors.BadIndexError;
 import edu.smith.cs.csc212.adtr.errors.EmptyListError;
@@ -20,7 +21,7 @@ public abstract class ListADT<ItemType> implements Iterable<ItemType> {
 	 * Is this list of size zero? Might be easier than counting all the elements.
 	 * @return true if this list is empty.
 	 */
-	protected abstract boolean isEmpty();
+	public abstract boolean isEmpty();
 
 	/**
 	 * The size of this list.
@@ -103,24 +104,6 @@ public abstract class ListADT<ItemType> implements Iterable<ItemType> {
 	 */
 	public abstract ItemType removeFront();
 
-	/**
-	 * Java requires this method for it's "for (ItemType x : list) { }" loop.
-	 */
-	public Iterator<ItemType> iterator() {
-		return new ListADTIterator<>(this);
-	}
-	
-	/**
-	 * Convert this to a Java data structure; probably useful for unit-test errors.
-	 * @return - a Java List object.
-	 */
-	public List<ItemType> toJava() {
-		List<ItemType> output = new ArrayList<>();
-		for (ItemType x : this) {
-			output.add(x);
-		}
-		return output;
-	}
 	
 	/**
 	 * If this list is empty, throw an error; useful for implementing classes.
@@ -155,6 +138,79 @@ public abstract class ListADT<ItemType> implements Iterable<ItemType> {
 		if (index > size()) {
 			throw new BadIndexError(index);
 		}
+	}
+	
+	/**
+	 * Java requires this method for it's "for (ItemType x : list) { }" loop.
+	 */
+	public Iterator<ItemType> iterator() {
+		return new ListADTIterator<>(this);
+	}
+	
+	/**
+	 * Convert this to a Java data structure; probably useful for unit-test errors.
+	 * @return - a Java List object.
+	 */
+	public List<ItemType> toJava() {
+		List<ItemType> output = new ArrayList<>();
+		for (ItemType x : this) {
+			output.add(x);
+		}
+		return output;
+	}
+	
+	
+	/**
+	 * Teach java how to compare two ListADT objects.
+	 * @return true if they have the same contents.
+	 */
+	@Override
+	public boolean equals(Object other) {
+		if (other instanceof ListADT) {
+			// We don't really know what kind of list is passed in, so treat it as a list of anything:
+			@SuppressWarnings("unchecked")
+			ListADT<Object> rhs = (ListADT<Object>) other;
+			
+			// if they're not the same size, they're different!
+			if (rhs.size() != this.size()) {
+				return false;
+			}
+			
+			// if they're not the same elements, they're different!
+			for (int i=0; i<this.size(); i++) {
+				if (!Objects.equals(this.getIndex(i), rhs.getIndex(i))) {
+					return false;
+				}
+			}
+			// if we got here, they're the same lists!
+			return true;
+		}
+		
+		return false;
+	}
+	
+	/**
+	 * Teach java how to print this kind of object.
+	 * @return a string representation of the data.
+	 */
+	public String toString() {
+		StringBuilder output = new StringBuilder();
+		output.append("ListADT [");
+		for (int i=0; i<this.size(); i++) {
+			if (i > 0) {
+				output.append(", ");
+			}
+			output.append(this.getIndex(i));
+		}
+		return output.append("]").toString();
+	}
+	
+	/**
+	 * Don't let people mis-use this class.
+	 */
+	@Override
+	public int hashCode() {
+		throw new IllegalArgumentException("Don't use a ListADT as a key in a hashmap!");
 	}
 
 }
