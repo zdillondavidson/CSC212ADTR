@@ -10,7 +10,7 @@ Remember that we will have a midterm that weekend, so don't save it until the la
 
 ### Rubric and Reflection (=15)
 
-You must fill out a Google Form to indicate the parts of the assignment that you have attempted. 
+You must fill out a [Google Form](https://forms.gle/FdG8gzoJbbyb5e4h6) to indicate the parts of the assignment that you have attempted. 
 
 In addition, you will write 10 statements of either:
  - Accomplishments: things that you understand much better now.
