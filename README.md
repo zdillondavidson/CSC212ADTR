@@ -2,7 +2,7 @@
 
 The learning objectives of this assignment are to understand how JUnit works and how to read and write basic tests before we start working on our own data structures.
 
-***Due Date***: October 11, 2019.
+***Due Date***: March 5, 2020.
 
 Remember that we will have a midterm that weekend, so don't save it until the last minute!
 
@@ -54,12 +54,13 @@ Make use of the structure I created for you in ``makeFullList``. The following m
 
 - setIndex
 - addIndex
-- addToBack
+- addBack
 - removeBack
 - removeIndex
 - removeFront
 
 Try to understand what's going on with the new errors: ``BadIndexError``, and ``EmptyListError`` in particular.
+One of these methods has a bug; i.e., something I put in to make it behave badly. Make sure you have a test for that case!
 
 ### Testing (and completeness)
 
@@ -67,7 +68,7 @@ It is impossible to fully prove these some of these methods work for every colle
 
 ## Coding Challenges (=12 + 12)
 
-Writing code and tests for these methods (see ``Challenge.java``) is worth 12 points, and 12 if you have tests.
+Writing code and tests for these methods (see ``Challenge.java``) is worth 12 points, and 12 if you have tests (beyond the simple one I gave).
 
  - intersection (4 + 4)
  - union (4 + 4)
@@ -76,10 +77,10 @@ Writing code and tests for these methods (see ``Challenge.java``) is worth 12 po
 
 ## ADT-Reductions: Construct one data structure from another and test it. (=?)
 
-- class SetFromMap extends SetADT
-- class SetFromList extends SetADT
-- class MapFromList extends MapADT
-- class ListFromMap extends ListADT
+- ``class SetFromMap<T> extends SetADT<T>``
+- ``class SetFromList<T> extends SetADT<T>``
+- ``class MapFromList<K,V> extends MapADT<K,V>``
+- ``class ListFromMap<T> extends ListADT<T>``
 
 
  
