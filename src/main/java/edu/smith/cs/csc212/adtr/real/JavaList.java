@@ -81,7 +81,9 @@ public class JavaList<T> extends ListADT<T> {
 
 	@Override
 	public void addBack(T value) {
-		inner.add(inner.size(), value);		
+		if (!inner.contains(value)) {
+			inner.add(value);		
+		}
 	}
 
 	@Override
