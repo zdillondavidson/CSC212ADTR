@@ -36,7 +36,7 @@ public abstract class ListADT<ItemType> implements Iterable<ItemType> {
 	 * @param index - the index; from 0 to size() inclusive.
 	 * @param value - the value to put in the list.
 	 */
-	public abstract void setIndex(int index, ItemType value);
+	public abstract void  setIndex(int index, ItemType value);
 
 	/**
 	 * Get the value at the given index.
@@ -76,7 +76,7 @@ public abstract class ListADT<ItemType> implements Iterable<ItemType> {
 	public abstract void addFront(ItemType value);
 
 	/**
-	 * Add value to the back of hte list.
+	 * Add value to the back of the list.
 	 * 
 	 * @param value - the item to add.
 	 */
